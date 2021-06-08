@@ -1,7 +1,7 @@
 module.exports = function (io) {
   io.on('connection', (socket) => {
      socket.on('join chat', (params) => {
-       console.log("========room1 "+params.room1 + ",  ========room2" + params.room2);
+       console.log("========room1 "+params.room1 + ",  ========room2 " + params.room2);
        socket.join(params.room1);
        socket.join(params.room2);
      });
