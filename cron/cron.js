@@ -3,7 +3,7 @@ module.exports = function (io, cron, User, _) {
 
     cron.schedule('* * * * *', () => {
         const roomList = userData.GetRoomList('global');
-        console.log("Room: [ "+roomList +" ]");
-        io.emit('usersOnline', _.uniq(roomList));
+        console.log("Room: [ " + roomList + " ]");
+        io.emit('usersOnline', _.uniq(userData.GetRoomList('global')));
     });
 }
