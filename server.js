@@ -14,8 +14,8 @@ const server = require('http').createServer(app);
 const io = require('socket.io').listen(server);
 
 io.attach(server, {
-    pingInterval: 10000,
-    pingTimeout: 5000,
+    pingInterval: 300000,
+    pingTimeout: 50000,
     cookie: false
 });
 
