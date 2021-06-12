@@ -13,6 +13,11 @@ module.exports = function (io, User, _) {
       io.emit('usersOnline', _.uniq(roomList));
     });
 
+    socket.on('users', data => {
+      const roomList = userData.GetRoomList(data.room);
+      io.emit('usersOnline', _.uniq(roomList));
+    });
+
     socket.on('disconnect', () => {
       const user = userData.RemoveUser(socket.id);
       if (user) {
