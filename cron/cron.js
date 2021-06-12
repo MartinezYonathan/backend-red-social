@@ -5,7 +5,7 @@ module.exports = function (io, cron) {
 
     while (true) {
         console.log("En linea...");
-        sleep(10 * 3000); // sleep for 10 seconds  
+        sleep(10 * 2000); // sleep for 10 seconds  
         io.emit('serviceline', "En linia");
     }
 }
