@@ -1,9 +1,7 @@
-module.exports = function (io, cron, User, _) {
-    const userData = new User();
-
+module.exports = function (io, cron) {
+    console.log("run..");
     cron.schedule('* * * * *', () => {
-        const roomList = userData.GetRoomList('global');
-        console.log("Room: [ " + roomList + " ]");
-        io.emit('usersOnline', _.uniq(userData.GetRoomList('global')));
+        console.log("En linia...");
+        io.emit('serviceline',"En linia");
     });
 }

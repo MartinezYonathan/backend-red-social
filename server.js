@@ -23,7 +23,7 @@ const image = require('./Routes/imageRoutes');
 
 require('./socket/streams')(io, User, _);
 require('./socket/private')(io);
-require('./cron/cron')(io,cron, User, _);
+require('./cron/cron')(io,cron);
 
 
 // Middlewares 
