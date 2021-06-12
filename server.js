@@ -23,8 +23,6 @@ const image = require('./Routes/imageRoutes');
 
 require('./socket/streams')(io, User, _);
 require('./socket/private')(io);
-require('./cron/cron')(io,cron);
-
 
 // Middlewares 
 app.use(cors());
@@ -54,3 +52,5 @@ if ( port == null || port == '') {
 server.listen(port, () => {
     console.log(`Server started on port ${port}!`);
 });
+
+require('./cron/cron')(io,cron);
