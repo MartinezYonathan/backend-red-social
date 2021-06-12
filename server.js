@@ -13,10 +13,6 @@ const { User } = require('./Helpers/UserClass');
 const server = require('http').createServer(app);
 const io = require('socket.io').listen(server);
 
-io.attach(server, {
-    cookie: false
-});
-
 const dbConfig = require('./Config/secret');
 const auth = require('./Routes/authRoutes');
 const posts = require('./Routes/postRoutes');
