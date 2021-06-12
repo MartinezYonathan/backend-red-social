@@ -3,8 +3,8 @@ const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors');
+var cron = require('node-cron');
 const _ = require('lodash');
-
 const app = express();
 
 const { User } = require('./Helpers/UserClass');
@@ -23,6 +23,8 @@ const image = require('./Routes/imageRoutes');
 
 require('./socket/streams')(io, User, _);
 require('./socket/private')(io);
+require('./cron/cron')(io,cron, User, _);
+
 
 // Middlewares 
 app.use(cors());
@@ -39,7 +41,6 @@ app.use('/api/socialconnect', image);
 
 mongoose.Promise = global.Promise;
 mongoose.connect(dbConfig.url, { useNewUrlParser: true });
-
 
 let port = process.env.PORT;
 if ( port == null || port == '') {
