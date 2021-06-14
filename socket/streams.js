@@ -1,5 +1,14 @@
 module.exports = function (io, User, _) {
   const userData = new User();
+  const PING_TIME = 25;
+  console.log("run_socket...");
+
+  const ping = () => {
+    console.log("En linea...");
+    const roomList = userData.GetRoomList('global');
+    io.emit('usersOnline', _.uniq(roomList));
+  };
+
   io.on('connection', (socket) => {
 
     socket.on('refresh', (data) => {
@@ -28,4 +37,6 @@ module.exports = function (io, User, _) {
       }
     });
   });
+
+  setInterval(ping, PING_TIME * 1000);
 }
