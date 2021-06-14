@@ -1,6 +1,6 @@
 module.exports = function (io, User, _) {
   const userData = new User();
-  const PING_TIME = 25;
+  const PING_TIME = 15;
   console.log("run_socket...");
 
   const ping = () => {
