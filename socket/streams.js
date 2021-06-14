@@ -14,6 +14,10 @@ module.exports = function (io, User, _) {
     socket.on('refresh', (data) => {
       io.emit('refreshPage', {});
     });
+   
+    socket.on('refreshllamada', (data) => {
+      io.emit('refreshPagellamada', data);
+    });
 
     socket.on('online', data => {
       socket.join(data.room);
