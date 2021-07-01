@@ -31,10 +31,10 @@ module.exports = function (io, User, _) {
       io.emit('usersOnline', _.uniq(roomList));
     });
 
-    socket.on('disconnect', () => {
+    socket.on('disconnect', data => {
       const user = userData.RemoveUser(socket.id);
       console.log("==============================cerrar session");
-      console.log(user.name);
+      console.log(user);
       if (user) {
         const userArray = userData.GetRoomList(user.room);
         const arr = _.uniq(userArray);
