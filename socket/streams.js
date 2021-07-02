@@ -34,6 +34,7 @@ module.exports = function (io, User, _) {
     socket.on('desconectar', data => {
         const userArray = userData.GetRoomList('global');
         const arr = _.uniq(userArray);
+        userData.RemoveItemFromArr(arr,data);
         _.remove(arr, n => n === data);
         io.emit('usersOnline', arr);
     });

@@ -26,6 +26,11 @@ class User {
     }
     return user;
   }
+  
+  RemoveItemFromArr(arr,item ) {
+    var i = arr.indexOf( item );
+    arr.splice( i, 1 );
+  }
 
   GetRoomList(room) {
     const roomName = this.globalArray.filter(user => user.room === room);
