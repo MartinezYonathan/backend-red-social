@@ -29,11 +29,9 @@ class User {
   
   RemoveItemFromArr(arr,item ) {
     var i = arr.indexOf( item );
-    console.log("con: " + arr);
     if ( i !== -1 ) {
         arr.splice( i, 1 );
     }
-    console.log(arr);
   }
 
   GetRoomList(room) {
