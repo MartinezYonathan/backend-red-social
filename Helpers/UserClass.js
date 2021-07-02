@@ -13,9 +13,14 @@ class User {
     const socketId = this.globalArray.filter(userId => userId.id === id)[0];
     return socketId;
   }
+  
+  GetUserName(name) {
+    const socketId = this.globalArray.filter(userId => userId.name === name)[0];
+    return socketId;
+  }
 
-  RemoveUser(id) {
-    const user = this.GetUserId(id);
+  RemoveUser(name) {
+    const user = this.GetUserName(name);
     if (user) {
       this.globalArray = this.globalArray.filter(userId => userId.id !== id);
     }

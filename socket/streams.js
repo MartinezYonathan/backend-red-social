@@ -32,7 +32,7 @@ module.exports = function (io, User, _) {
     });
 
     socket.on('disconnect', data => {
-      const user = userData.RemoveUser(socket.id);
+      const user = userData.RemoveUser(data);
       console.log("==============================cerrar session");
       console.log(user);
       if (user) {
