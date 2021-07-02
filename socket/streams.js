@@ -42,6 +42,7 @@ module.exports = function (io, User, _) {
         io.emit('usersOnline', arr);
       }
     });
+    
   });
 
   setInterval(ping, PING_TIME * 1000);
