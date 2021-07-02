@@ -32,8 +32,10 @@ module.exports = function (io, User, _) {
     });
 
     socket.on('disconnect', data => {
-      const user = userData.RemoveUser(data);
       console.log("==============================cerrar session");
+      
+      const user = userData.RemoveUser(data);
+      
       console.log(user);
       if (user) {
         const userArray = userData.GetRoomList(user.room);
