@@ -36,7 +36,6 @@ module.exports = function (io, User, _) {
         const arr = _.uniq(userArray);
         _.remove(arr, n => n === data);
         io.emit('usersOnline', arr);
-      }
     });
     
     socket.on('disconnect', () => {
