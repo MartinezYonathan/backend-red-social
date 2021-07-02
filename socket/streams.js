@@ -31,10 +31,10 @@ module.exports = function (io, User, _) {
       io.emit('usersOnline', _.uniq(roomList));
     });
 
-    socket.on('disconnect', data => {
+    socket.on('desconectar', data => {
       console.log("==============================cerrar session");
-      
-      const user = userData.RemoveUser(data);
+      console.log(data);
+      const user = userData.RemoveUser(socket.id);
       
       console.log(user);
       if (user) {
