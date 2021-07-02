@@ -32,11 +32,15 @@ module.exports = function (io, User, _) {
     });
 
     socket.on('desconectar', data => {
-      console.log("==============================cerrar session");
-      console.log(data);
+        const userArray = userData.GetRoomList('global');
+        const arr = _.uniq(userArray);
+        _.remove(arr, n => n === data);
+        io.emit('usersOnline', arr);
+      }
+    });
+    
+    socket.on('disconnect', () => {
       const user = userData.RemoveUser(socket.id);
-      
-      console.log(user);
       if (user) {
         const userArray = userData.GetRoomList(user.room);
         const arr = _.uniq(userArray);
