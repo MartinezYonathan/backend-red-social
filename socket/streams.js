@@ -22,6 +22,7 @@ module.exports = function (io, User, _) {
 
     socket.on('online', data => {
       socket.join(data.room);
+      console.log(data);
       userData.EnterRoom(socket.id, data.user, data.room);
       const roomList = userData.GetRoomList(data.room);
       io.emit('usersOnline', _.uniq(roomList));
