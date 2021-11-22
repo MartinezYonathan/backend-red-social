@@ -6,6 +6,7 @@ module.exports = function (io, User, _) {
   const ping = () => {
     console.log("En linea...");
     const roomList = userData.GetRoomList('global');
+    console.log(roomList);
     io.emit('usersOnline', _.uniq(roomList));
   };
 
